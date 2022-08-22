@@ -1,0 +1,15 @@
+.dinner-card {
+    height: 650px;
+    border-radius: 10px;
+}
+
+.dinner-card img {
+    width: 100%;
+    padding: 22px 20px; 
+}
+
+.dinner-card h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+}

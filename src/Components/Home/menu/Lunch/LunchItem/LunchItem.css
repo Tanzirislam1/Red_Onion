@@ -1,0 +1,15 @@
+.lunch-card {
+    height: 650px;
+    border-radius: 10px;
+}
+
+.lunch-card img {
+    width: 100%;
+    padding: 22px 20px; 
+}
+
+.lunch-card h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+}

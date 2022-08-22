@@ -1,0 +1,11 @@
+#lunch-section{
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.lunch-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px 40px;
+    margin-top: 50px;
+}

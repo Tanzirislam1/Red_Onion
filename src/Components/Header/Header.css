@@ -1,0 +1,77 @@
+.navbar a img {
+    width: 90%;
+    height: 50px;
+}
+
+.navbar-nav .nav-item {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+}
+
+.navbar-nav .nav-item:not(:nth-child(2)) {
+    margin-right: 20px;
+}
+
+/* button-effect-1 */
+
+.navbar .login-btn {
+    width: 105px;
+    height: 46px;
+    border: none;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(255, 0, 68);
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 0 #fb4267;
+    transition: ease-in-out 0.5s;
+    font-size: 18px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.navbar .login-btn:hover {
+    box-shadow: inset 300px 0 0 0 #fb4267;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+/* button effect 2 */
+
+.navbar .signup-btn {
+    width: 130px;
+    height: 46px;
+    border: none;
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 18px;
+    outline: none;
+    border: 2px solid rgb(255, 0, 68);
+    position: relative;
+    z-index: 1;
+}
+
+.navbar .signup-btn:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.navbar .signup-btn::before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    left: 50%;
+    opacity: 0;
+    content: "";
+    background-color: #fb4267;
+}
+
+.navbar .signup-btn:hover::before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
