@@ -9,6 +9,8 @@ import Services from './Components/Home/Services/Services';
 import Breakfast from './Components/Home/menu/Breakfast/Breakfast';
 import Lunch from './Components/Home/menu/Lunch/Lunch';
 import Dinner from './Components/Home/menu/Dinner/Dinner';
+import ServiceItem from './Components/Home/ServiceItem/ServiceItem';
+
 
 function App() {
   return (
@@ -31,8 +33,12 @@ function App() {
           <Route path='dinner' element={<Dinner></Dinner>}></Route>
         </Route>
 
-        <Route path="/services/:serviceId" element={<Services></Services>}>
+        <Route path="/serviceItem/:serviceId" element={<ServiceItem></ServiceItem>}>
         </Route>
+        
+        <Route path='/serviceItem' element={<ServiceItem></ServiceItem>}></Route>
+
+        <Route path='/services' element={<Services></Services>}></Route>
 
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>

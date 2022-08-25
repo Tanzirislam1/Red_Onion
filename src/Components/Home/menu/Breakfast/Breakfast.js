@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BreakfastItem from '../../../../Components/Home/menu/Breakfast/BreakfastItem/BreakfastItem';
 import './Breakfast.css';
 
 const Breakfast = () => {
-    
+
     const breakfastItems = [
         {
             id: 1,
@@ -54,7 +55,12 @@ const Breakfast = () => {
         }
     ];
     // console.log(breakfastItems);
-    
+
+    // slice length 
+    if (breakfastItems?.length) {
+        breakfastItems.length = 3;
+    }
+
     return (
         <div id='breakfast-section'>
             <h2 className='mt-5 text-center'>Breakfast items : {breakfastItems.length}</h2>
@@ -62,6 +68,12 @@ const Breakfast = () => {
                 {
                     breakfastItems.map(item => <BreakfastItem key={item.id} item={item}></BreakfastItem>)
                 }
+
+
+            </div>
+
+            <div className='allitem-button'>
+                <Link className='text-center all-services-btn' to="/services">All Items</Link>
             </div>
         </div>
     );

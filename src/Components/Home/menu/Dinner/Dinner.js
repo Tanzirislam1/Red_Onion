@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DinnerItem from '../../../../Components/Home/menu/Dinner/DinnerItem/DinnerItem';
 import './Dinner.css';
 
@@ -52,7 +53,11 @@ const Dinner = () => {
             price: "150"
         }
     ];
-    console.log(dinnerItems);
+    // console.log(dinnerItems);
+
+    if (dinnerItems.length) {
+        dinnerItems.length = 3;
+    }
 
     return (
         <div>
@@ -62,6 +67,9 @@ const Dinner = () => {
                     {
                         dinnerItems.map(item => <DinnerItem key={item.id} item={item}></DinnerItem>)
                     }
+                </div>
+                <div className='allitem-button'>
+                    <Link className='text-center all-services-btn' to="/services">All Items</Link>
                 </div>
             </div>
         </div>

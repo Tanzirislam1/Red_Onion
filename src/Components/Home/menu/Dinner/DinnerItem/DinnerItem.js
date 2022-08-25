@@ -9,9 +9,10 @@ const DinnerItem = ({ item }) => {
     const navigate = useNavigate();
 
     const handleDinnerId = () => {
-        navigate(`/services/${id}`);
+        navigate(`/serviceItem/${id}`);
         // console.log('hello', id);
     }
+    
     return (
         <div>
             <div className="dinner-card shadow-lg border-none">
@@ -20,7 +21,7 @@ const DinnerItem = ({ item }) => {
                     <h2 className="card-title">{name}</h2>
                     <p className="card-text">{description}</p>
                     <h3 className='mt-2'>price: <small>${price}</small></h3>
-                    <button className='btn btn-primary' onClick={handleDinnerId}>Learn more</button>
+                    <button className='btn btn-primary mt-4' onClick={handleDinnerId}>Learn more</button>
                 </div>
             </div>
         </div>

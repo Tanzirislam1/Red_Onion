@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LunchItem from '../../../../Components/Home/menu/Lunch/LunchItem/LunchItem';
 import './Lunch.css';
 
@@ -54,6 +55,10 @@ const Lunch = () => {
     ];
     // console.log(lunchItems);
 
+    if (lunchItems.length) {
+        lunchItems.length = 3;
+    }
+
     return (
         <div className='container'>
             <h2 className='mt-5 text-center'>Our Lunch items : {lunchItems.length}</h2>
@@ -62,6 +67,10 @@ const Lunch = () => {
                     {
                         lunchItems.map(item => <LunchItem key={item.id} item={item}></LunchItem>)
                     }
+                </div>
+
+                <div className='allitem-button'>
+                    <Link className='text-center all-services-btn' to="/services">All Items</Link>
                 </div>
             </div>
         </div>
