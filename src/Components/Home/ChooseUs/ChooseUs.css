@@ -1,0 +1,14 @@
+.choose-us-card-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px 20px;
+    margin-top: 50px;
+}
+
+.chooseus-subtitle{
+    font-size: 20px;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}

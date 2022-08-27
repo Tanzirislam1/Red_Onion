@@ -10,6 +10,8 @@ import Breakfast from './Components/Home/menu/Breakfast/Breakfast';
 import Lunch from './Components/Home/menu/Lunch/Lunch';
 import Dinner from './Components/Home/menu/Dinner/Dinner';
 import ServiceItem from './Components/Home/ServiceItem/ServiceItem';
+import RequiredAuth from './Components/RequiredAuth/RequiredAuth';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -33,10 +35,14 @@ function App() {
           <Route path='dinner' element={<Dinner></Dinner>}></Route>
         </Route>
 
-        <Route path="/serviceItem/:serviceId" element={<ServiceItem></ServiceItem>}>
+        <Route path="/serviceItem/:serviceId" element={<RequiredAuth>
+          <ServiceItem></ServiceItem>
+        </RequiredAuth>}>
         </Route>
-        
-        <Route path='/serviceItem' element={<ServiceItem></ServiceItem>}></Route>
+
+        <Route path='/serviceItem' element={<RequiredAuth>
+          <ServiceItem></ServiceItem>
+        </RequiredAuth>}></Route>
 
         <Route path='/services' element={<Services></Services>}></Route>
 
@@ -44,6 +50,7 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
 
     </div>
   );

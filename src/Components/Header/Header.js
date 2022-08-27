@@ -9,6 +9,7 @@ import './Header.css';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    console.log(user);
 
     const logOut = () => {
         signOut(auth);
@@ -27,7 +28,8 @@ const Header = () => {
                         <CustomLink className="nav-item" to="/services">Services</CustomLink>
                         <CustomLink className="nav-item" to="/serviceItem">Item</CustomLink>
                     </ul>
-            
+
+                    {user && user.displayName}
                     <Link to="/login" >
                         {user ? <button onClick={logOut} className='login-btn'>LogOut</button> : <button className='login-btn'>Login</button>}
                     </Link>

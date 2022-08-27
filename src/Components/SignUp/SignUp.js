@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './SignUp.css';
 import { Button, Form } from 'react-bootstrap';
 import { Google } from 'react-bootstrap-icons';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../Firebase/Firebase.init';
 import Loading from '../Loading/Loading';
@@ -19,7 +19,10 @@ const SignUp = () => {
         createUser,
         createLoading,
         createError,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    // updateProfile
+    const [updateProfile, profileUpdating, profilerror] = useUpdateProfile(auth);
 
     const handleSignInGoogle = () => {
         signInWithGoogle();
@@ -44,7 +47,7 @@ const SignUp = () => {
         return <Loading></Loading>
     }
 
-    const handleSignUpSubmit = event => {
+    const handleSignUpSubmit = async (event) => {
         event.preventDefault();
 
         const name = event.target.name.value;
@@ -57,10 +60,13 @@ const SignUp = () => {
             createUserWithEmailAndPassword(email, password);
         }
 
-        else {
-            return <p className='text-white'>Wrong password</p>
-        }
+        /* create user with update profile async await : amra jokhon createUserWithEmailAndPassword kore user k create kortase then user k create kore amra user profile k update kortase....amra user k create kora porjonto awit kortase then jokhon user create hocche tokhon user profile update kortase aikhane amra name field k update kortase kinto aikhane displayName diye amra profile k update kortase kinto amader name field k name variable diye access kortase aikhane amra name varibale k displayName kore dite pari abar amra displayName jeheto object so amra displayName er value hisabe amra name variabale k set korte pari karon amra name field k jeikhane access kortase ter variable name hocche name...amra user profile update korar por notification dayoar jonne alert use korte pari abr abar toast o use korte pari....amra user profile update hocche kina sheita insure korte navigate keo use korte pari...amra aikhane navigate kortase home page er moddhe... */
 
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+        console.log('User profile Update');
+        alert('User profile Update');
+        navigate('/home');
     }
 
     return (
@@ -70,22 +76,22 @@ const SignUp = () => {
                 <Form onSubmit={handleSignUpSubmit} className='signup-form'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" name='name' placeholder="Enter Name" />
+                        <Form.Control type="text" name='name' placeholder="Enter Name" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter email" />
+                        <Form.Control type="email" name='email' placeholder="Enter email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name='password' placeholder="Password" />
+                        <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                         <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control type="password" name="confirmPassword" placeholder="Confirm Password" />
+                        <Form.Control type="password" name="confirmPassword" placeholder="Confirm Password" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">

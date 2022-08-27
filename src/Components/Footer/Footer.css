@@ -1,0 +1,18 @@
+.footer-background {
+    background-color: #000000de;
+    padding-top: 75px;
+    padding-bottom: 18px;
+    margin-top: 120px;
+}
+
+.footer-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 15px;
+}
+
+.footer-logo{
+    width: 250px;
+    height: auto;
+}
